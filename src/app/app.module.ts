@@ -6,10 +6,19 @@ import { httpInterceptorProviders } from './api/interceptors';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComponentsModule } from './ui/components/components.module';
+import { PagesModule } from './ui/pages/pages.module';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ApiModule,
+    HttpClientModule,
+    ComponentsModule,
+    PagesModule,
+  ],
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, ApiModule, HttpClientModule],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
