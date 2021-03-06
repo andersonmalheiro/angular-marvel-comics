@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #28282f;
+  height: 70px;
+  padding: 10px;
+
+  .copyright {
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+  }
+}
