@@ -10,19 +10,7 @@ import { ComicsService } from './api/services';
 export class AppComponent {
   title = 'marvel-comics-angular';
 
-  constructor(private comicService: ComicsService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.comicService
-      .list({ limit: 10 })
-      .pipe(take(1))
-      .subscribe(
-        (response) => {
-          console.log(response);
-        },
-        (err) => {
-          console.error(err);
-        }
-      );
-  }
+  ngOnInit(): void {}
 }

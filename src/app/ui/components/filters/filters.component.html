@@ -32,19 +32,10 @@
   </div>
 
   <div class="flex-row align-center pv-1">
-    <button
-    type="button"
-      class="btn secondary-btn"
-      (click)="clearFilters()"
-      [disabled]="!canSearch"
-    >
+    <button type="button" class="btn secondary-btn" (click)="clearFilters()">
       Clear
     </button>
-    <button
-      type="submit"
-      class="btn primary-btn"
-      [disabled]="!canSearch"
-    >
+    <button type="submit" class="btn primary-btn" [disabled]="!canSearch">
       Search
     </button>
   </div>

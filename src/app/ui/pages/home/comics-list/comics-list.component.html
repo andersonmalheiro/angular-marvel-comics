@@ -1,1 +1,19 @@
 <app-filters (events)="handleFilterEvents($event)"></app-filters>
+
+<div class="list-container" #listContainer>
+  <ng-container *ngIf="!listState?.loading; else loadingBlock">
+    <app-comic-list-grid [data]="data"></app-comic-list-grid>
+  </ng-container>
+
+  <ng-template #loadingBlock>
+    <app-loading-indicator></app-loading-indicator>
+  </ng-template>
+
+  <div class="flex-row align-center justify-center p-1" *ngIf="listState?.next">
+    <button class="ghost-btn" (click)="loadMore()">
+      <span>Load more</span>
+      <i class="gg-arrow-down icon" *ngIf="listState?.next && !listState?.loadingMore"></i>
+      <i class="gg-spinner-two-alt icon" *ngIf="listState?.loadingMore"></i>
+    </button>
+  </div>
+</div>

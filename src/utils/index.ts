@@ -1,2 +1,3 @@
-export * from './handle-error';
+export * from './clear-object';
 export * from './get-authorization';
+export * from './handle-error';
