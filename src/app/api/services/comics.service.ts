@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Comic, ComicFilters } from '../models/comics.model';
 import { handleError } from 'src/utils';
-import { ResponseWrapper } from '../models';
+import { Pagination, ResponseWrapper } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -15,9 +15,9 @@ export class ComicsService {
 
   constructor(private http: HttpClient) {}
 
-  public list(filters: ComicFilters): Observable<ResponseWrapper<Comic>> {
+  public list(filters: ComicFilters): Observable<Pagination<Comic>> {
     return this.http
-      .get<ResponseWrapper<Comic>>(`${this.baseURL}/comics`, {
+      .get<Pagination<Comic>>(`${this.baseURL}/comics`, {
         params: {
           ...(filters as any),
         },
@@ -25,9 +25,9 @@ export class ComicsService {
       .pipe(catchError(handleError))
   }
 
-  public getByID(comicId: number): Observable<ResponseWrapper<Comic>> {
+  public getByID(comicId: number): Observable<Pagination<Comic>> {
     return this.http
-      .get<ResponseWrapper<Comic>>(`${this.baseURL}/comics/${comicId}`)
+      .get<Pagination<Comic>>(`${this.baseURL}/comics/${comicId}`)
       .pipe(catchError(handleError));
   }
 }
