@@ -1,0 +1,48 @@
+<ng-container *ngIf="data && data?.length; else emptyBlock">
+  <div class="comics-grid">
+    <div class="comic-card" key="{comic.id}" *ngFor="let comic of data">
+      <div class="comic-image-wrapper">
+        <img
+          [src]="
+            comic?.thumbnail?.path +
+            '/portrait_incredible.' +
+            comic?.thumbnail?.extension
+          "
+          alt="image"
+        />
+      </div>
+      <div class="comic-card-info">
+        <span class="title" [innerText]="comic?.title"></span>
+        <span
+          class="issue"
+          [innerText]="
+            comic?.issueNumber
+              ? 'Issue #' + comic?.issueNumber
+              : 'Issue not provided'
+          "
+        ></span>
+
+        <div class="flex-column pv-1">
+          <strong>Creators</strong>
+          <ul
+            class="creators"
+            *ngIf="comic?.creators?.items?.length; else emptyCreatorsBlock"
+          >
+            <li
+              *ngFor="let creator of comic?.creators?.items"
+              [innerText]="creator?.name"
+            ></li>
+          </ul>
+
+          <ng-template #emptyCreatorsBlock>
+            <span>No creators provided...</span>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #emptyBlock>
+  <app-empty-indicator></app-empty-indicator>
+</ng-template>

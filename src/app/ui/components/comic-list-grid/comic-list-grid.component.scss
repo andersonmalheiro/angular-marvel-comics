@@ -1,0 +1,53 @@
+.comics-grid {
+  display: grid;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  gap: 1em;
+  transition: all 0.3s ease-in-out;
+}
+
+.comic-card {
+  display: flex;
+  background: #fff;
+  border-radius: 40px 8px 40px 8px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.comic-image-wrapper {
+  cursor: pointer;
+  img {
+    border-radius: 40px 8px 40px 8px;
+    height: 220px;
+    width: auto;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.comic-card-info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+
+  .title {
+    font-weight: bold;
+  }
+
+  .issue {
+    margin-top: 5px;
+  }
+}
+
+.creators {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
