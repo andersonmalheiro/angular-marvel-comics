@@ -1,0 +1,92 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.header {
+  display: flex;
+  margin-bottom: 15px;
+
+  h1 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.toggle-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.input-grid {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.input-control {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+
+  .input {
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 3px 10px 1px #28282f21;
+
+    &::placeholder {
+      color: #999;
+    }
+
+    &:invalid {
+      border: 1px solid red;
+    }
+  }
+}
+
+
+.btn {
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px 18px;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:not(:last-child) {
+    margin-right: 1em;
+  }
+}
+
+.primary-btn {
+  background: #28282f;
+  color: #fff;
+  border: none;
+}
+
+.secondary-btn {
+  color: #28282f;
+  background: #fff;
+  border: 1px solid #28282f;
+}

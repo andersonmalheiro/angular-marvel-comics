@@ -1,0 +1,51 @@
+<div class="header">
+  <h1>Filters</h1>
+  <button (click)="toggleFilters()" class="toggle-btn">
+    <i [ngClass]="{ 'gg-chevron-up': open, 'gg-chevron-down': !open }"></i>
+  </button>
+</div>
+
+<form [formGroup]="formGroup" *ngIf="open" @collapse (submit)="applyFilters()">
+  <div class="input-grid">
+    <fieldset class="input-control">
+      <label for="title">Title</label>
+      <input
+        class="input"
+        type="text"
+        id="title"
+        name="title"
+        placeholder="Search by title..."
+        formControlName="title"
+      />
+    </fieldset>
+    <fieldset class="input-control">
+      <label for="title">Issue number</label>
+      <input
+        class="input"
+        type="number"
+        id="issueNumber"
+        name="issueNumber"
+        placeholder="Search by issue number..."
+        formControlName="issueNumber"
+      />
+    </fieldset>
+  </div>
+
+  <div class="flex-row align-center pv-1">
+    <button
+    type="button"
+      class="btn secondary-btn"
+      (click)="clearFilters()"
+      [disabled]="!canSearch"
+    >
+      Clear
+    </button>
+    <button
+      type="submit"
+      class="btn primary-btn"
+      [disabled]="!canSearch"
+    >
+      Search
+    </button>
+  </div>
+</form>
