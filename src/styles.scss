@@ -64,6 +64,20 @@ body {
   justify-content: space-between;
 }
 
+.p-1 {
+  padding: 1em;
+}
+
+.ph-1 {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.pv-1 {
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
 .ghost-btn {
   height: 30px;
   width: 30px;
