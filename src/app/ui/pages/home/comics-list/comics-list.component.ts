@@ -56,7 +56,7 @@ export class ComicsListComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         (response) => {
-          this.listState.next = response.total > response.offset;
+          this.listState.next = response.total - this.listState.offset > 10;
           this.listState.loading = false;
           this.listState.loadingMore = false;
 
