@@ -1,0 +1,185 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.thumbnail {
+  position: absolute;
+  left: 25px;
+  transform: translateY(-60%);
+  height: 220px;
+  width: 145px;
+  border-radius: 40px 8px 40px 8px;
+  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.bg {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0.7;
+  transition: all 0.3s ease-in-out;
+  background-position: center;
+  background-size: cover;
+}
+
+.title-container {
+  margin-left: 180px;
+  padding: 8px 0;
+
+  .title {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .issue-number {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+.bottom-bar {
+  align-self: flex-end;
+  position: relative;
+  height: 100px;
+  width: 100%;
+  background: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.character-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .list-title {
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .character-grid {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1em;
+
+    .list-item {
+      height: 50px;
+      position: relative;
+      background: #fff;
+      padding: 5px;
+      display: flex;
+      margin-left: 5px;
+      border-radius: 10px;
+
+      .avatar {
+        position: absolute;
+        left: 5px;
+        top: -10px;
+        height: 45px;
+        width: 45px;
+        border-radius: 12px;
+      }
+
+      .name {
+        font-size: 12px;
+        margin-left: 50px;
+      }
+
+      .description {}
+    }
+  }
+}
+.list-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .list-title {
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    .list-item {
+      display: flex;
+      align-items: flex-end;
+      margin-left: 5px;
+      padding: 3px 0;
+      max-width: 300px;
+
+      .avatar {
+        height: 80px;
+        width: auto;
+        border-radius: 12px;
+      }
+
+      .name {
+        font-weight: bold;
+      }
+
+      .description {
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    height: 200px;
+  }
+
+  .thumbnail {
+    height: 120px;
+    width: auto;
+    border-radius: 30px 8px 30px 8px !important;
+  }
+
+  .bottom-bar {
+    height: 60px;
+  }
+
+  .title-container {
+    margin-left: 120px;
+
+    .title {
+      font-size: 14px;
+    }
+
+    .issue-number {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,3 +1,83 @@
-<p>
-  comic works!
-</p>
+<ng-container *ngIf="!loading && !error && comic">
+  <div class="header">
+    <div class="bg" [style.background-image]="bgImage"></div>
+
+    <div class="bottom-bar">
+      <img
+        class="thumbnail"
+        [src]="
+          comic.thumbnail.path +
+          '/portrait_incredible.' +
+          comic.thumbnail.extension
+        "
+        alt="thumbnail"
+      />
+
+      <div class="title-container">
+        <h1 class="title" [innerText]="comic?.title"></h1>
+        <h2
+          class="issue-number"
+          [innerText]="'Issue number: #' + comic?.issueNumber"
+        ></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex-column" style="padding: 1em 25px">
+    <strong>Description</strong>
+    <p [innerText]="comic?.description || 'No description provided...'"></p>
+
+    <div class="flex-row" style="gap: 1em">
+      <div class="character-list">
+        <span class="list-title">Characters</span>
+        <ul
+          class="character-grid"
+          *ngIf="characters?.length; else emptyCharacterssBlock"
+        >
+          <li class="list-item" *ngFor="let character of characters">
+            <img
+              [src]="character?.thumbnail"
+              [alt]="character?.name"
+              class="avatar"
+            />
+
+            <span class="name" [innerText]="character?.name"></span>
+          </li>
+        </ul>
+
+        <ng-template #emptyCharacterssBlock>
+          <p>No characters found...</p>
+        </ng-template>
+      </div>
+
+      <div class="list-container">
+        <span class="list-title">Creators</span>
+        <ul
+          class="list"
+          *ngIf="comic?.creators?.items?.length; else emptyCreatorsBlock"
+        >
+          <li
+            *ngFor="let creator of comic?.creators?.items"
+            [innerText]="creator?.name + ' - ' + creator?.role"
+          ></li>
+        </ul>
+
+        <ng-template #emptyCreatorsBlock>
+          <p>No creators found...</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="loading">
+  <div class="flex-row align-center justify-center" style="height: 70vh">
+    <app-loading-indicator></app-loading-indicator>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="error">
+  <div class="flex-row align-center justify-center" style="height: 70vh">
+    <app-empty-indicator [message]="error?.statusText"></app-empty-indicator>
+  </div>
+</ng-container>
