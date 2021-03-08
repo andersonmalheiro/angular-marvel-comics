@@ -2,14 +2,16 @@
   <div class="comics-grid">
     <div class="comic-card" key="{comic.id}" *ngFor="let comic of data">
       <div class="comic-image-wrapper">
-        <img
-          [src]="
-            comic?.thumbnail?.path +
-            '/portrait_incredible.' +
-            comic?.thumbnail?.extension
-          "
-          alt="image"
-        />
+        <a [routerLink]="['/comics/', comic.id]">
+          <img
+            [src]="
+              comic?.thumbnail?.path +
+              '/portrait_incredible.' +
+              comic?.thumbnail?.extension
+            "
+            alt="image"
+          />
+        </a>
       </div>
       <div class="comic-card-info">
         <span class="title" [innerText]="comic?.title"></span>
