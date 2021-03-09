@@ -1,0 +1,12 @@
+<div class="list-container">
+  <div class="flex-row align-center space-between">
+    <h1>Favourites</h1>
+
+    <button class="ghost-btn" (click)="clearFavourites()" *ngIf="data?.length">
+      <span style="margin-right: 10px">Clear</span>
+      <i class="gg-trash"></i>
+    </button>
+  </div>
+
+  <app-comic-list-grid [data]="data"></app-comic-list-grid>
+</div>

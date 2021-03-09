@@ -6,10 +6,17 @@ import { RouterModule } from '@angular/router';
 import { ComicComponent } from './comic';
 import { ComicsListComponent } from './comics-list';
 import { ComponentsModule } from '../../components/components.module';
+import { FavouritesComponent } from './favourites';
 
 @NgModule({
   imports: [CommonModule, ComponentsModule, RouterModule],
-  declarations: [HomeComponent, ComicComponent, ComicsListComponent],
+  declarations: [
+    HomeComponent,
+    ComicComponent,
+    ComicsListComponent,
+    FavouritesComponent,
+  ],
   exports: [HomeRoutingModule],
+  providers: [],
 })
 export class HomeModule {}
