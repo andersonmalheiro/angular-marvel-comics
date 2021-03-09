@@ -20,6 +20,18 @@
           [innerText]="'Issue number: #' + comic?.issueNumber"
         ></h2>
       </div>
+
+      <button
+        class="ghost-btn"
+        style="height: fit-content"
+        (click)="favComic(comic)"
+      >
+        <i
+          class="gg-heart"
+          [class.fav-button]="comic?.selected"
+          [class.fav-button-empty]="!comic?.selected"
+        ></i>
+      </button>
     </div>
   </div>
 
@@ -72,7 +84,7 @@
         <ul class="list" *ngIf="comic?.dates?.length; else emptyDatesBlock">
           <li *ngFor="let dateObj of comic?.dates">
             {{ dateTypes[dateObj.type] }} -
-            {{ ((dateObj.date) | date: "dd/MM/yyyy") || 'not provided' }}
+            {{ (dateObj.date | date: "dd/MM/yyyy") || "not provided" }}
           </li>
         </ul>
 

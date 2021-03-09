@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { Comic } from 'src/app/api/models';
 import { ComicsService } from 'src/app/api/services';
+import { FavouriteService } from '../favourite.service';
 
 interface CharacterDetails {
   name: string;
@@ -90,6 +91,10 @@ export class ComicComponent implements OnInit {
             const [comic] = response.results;
             this.comic = comic;
 
+            if (FavouriteService.favIds.includes(this.comic.id)) {
+              this.comic.selected = true;
+            }
+
             const { dates } = comic;
 
             if (dates) {
@@ -115,5 +120,9 @@ export class ComicComponent implements OnInit {
           this.loading = false;
         }
       );
+  }
+
+  public favComic(comic: Comic) {
+    FavouriteService.toggleFavouriteComic(comic);
   }
 }
