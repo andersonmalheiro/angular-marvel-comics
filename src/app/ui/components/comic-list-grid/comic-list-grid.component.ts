@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Comic } from 'src/app/api/models';
+import { FavouriteService } from '../../pages/home/favourite.service';
 
 @Component({
   selector: 'app-comic-list-grid',
@@ -12,4 +13,8 @@ export class ComicListGridComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  public favComic(comic: Comic) {
+    FavouriteService.toggleFavouriteComic(comic);
+  }
 }
