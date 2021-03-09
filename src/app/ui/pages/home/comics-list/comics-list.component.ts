@@ -51,7 +51,6 @@ export class ComicsListComponent implements OnInit {
         ...this.listState.filters,
         offset: this.listState.offset,
         limit: 10,
-        orderBy: 'title',
       })
       .pipe(take(1))
       .subscribe(
