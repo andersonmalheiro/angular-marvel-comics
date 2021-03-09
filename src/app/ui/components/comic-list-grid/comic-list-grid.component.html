@@ -31,8 +31,13 @@
             *ngIf="comic?.creators?.items?.length; else emptyCreatorsBlock"
           >
             <li
-              *ngFor="let creator of comic?.creators?.items"
+              *ngFor="let creator of comic?.creators?.items | slice: 0:5"
               [innerText]="creator?.name"
+            ></li>
+
+            <li
+              *ngIf="comic.creators.items.length && comic.creators.items.length > 5"
+              [innerText]="'+' + (comic.creators.items.length - 5)"
             ></li>
           </ul>
 

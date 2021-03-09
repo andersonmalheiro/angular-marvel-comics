@@ -72,7 +72,7 @@
         <ul class="list" *ngIf="comic?.dates?.length; else emptyDatesBlock">
           <li *ngFor="let dateObj of comic?.dates">
             {{ dateTypes[dateObj.type] }} -
-            {{ dateObj.date | date: "dd/MM/yyyy" }}
+            {{ ((dateObj.date) | date: "dd/MM/yyyy") || 'not provided' }}
           </li>
         </ul>
 

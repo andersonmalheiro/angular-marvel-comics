@@ -90,6 +90,17 @@ export class ComicComponent implements OnInit {
             const [comic] = response.results;
             this.comic = comic;
 
+            const { dates } = comic;
+
+            if (dates) {
+              dates.forEach((dateObj) => {
+                const convertedDate = new Date(dateObj.date);
+                if (Number.isNaN(convertedDate.getTime())) {
+                  dateObj.date = '';
+                }
+              });
+            }
+
             const [image] = comic.images;
 
             if (image) {
