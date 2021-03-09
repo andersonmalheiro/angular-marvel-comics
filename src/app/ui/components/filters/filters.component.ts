@@ -18,8 +18,9 @@ export interface FilterEvents {
 }
 
 const DEFAULT_VALUE = {
-  title: '',
   issueNumber: '',
+  orderBy: '',
+  title: '',
 };
 
 @Component({
@@ -42,9 +43,36 @@ const DEFAULT_VALUE = {
 export class FiltersComponent implements OnInit {
   public open = true;
 
+  public ordenators: {
+    key: string;
+    label: string;
+  }[] = [
+    {
+      key: 'title',
+      label: 'Title',
+    },
+    {
+      key: 'focDate',
+      label: 'FOC Date',
+    },
+    {
+      key: 'onsaleDate',
+      label: 'On sale',
+    },
+    {
+      key: 'issueNumber',
+      label: 'Issue',
+    },
+    {
+      key: 'modified',
+      label: 'Last modified',
+    },
+  ];
+
   public formGroup: FormGroup = new FormGroup({
-    title: new FormControl('', []),
     issueNumber: new FormControl('', [Validators.min(1)]),
+    orderBy: new FormControl('', []),
+    title: new FormControl('', []),
   });
 
   @Output() public events: EventEmitter<FilterEvents> = new EventEmitter();

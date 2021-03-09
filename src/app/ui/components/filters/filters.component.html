@@ -8,7 +8,7 @@
 <form [formGroup]="formGroup" *ngIf="open" @collapse (submit)="applyFilters()">
   <div class="input-grid">
     <fieldset class="input-control">
-      <label for="title">Title</label>
+      <label for="title">Title:</label>
       <input
         class="input"
         type="text"
@@ -19,7 +19,7 @@
       />
     </fieldset>
     <fieldset class="input-control">
-      <label for="title">Issue number</label>
+      <label for="title">Issue number:</label>
       <input
         class="input"
         type="number"
@@ -28,6 +28,22 @@
         placeholder="Search by issue number..."
         formControlName="issueNumber"
       />
+    </fieldset>
+    <fieldset class="input-control">
+      <label for="orderBy">Order by:</label>
+      <select
+        class="input"
+        id="orderBy"
+        name="issueNumber"
+        formControlName="orderBy"
+      >
+        <option value="">Select an option...</option>
+        <option
+          *ngFor="let item of ordenators"
+          [value]="item?.key"
+          [innerText]="item?.label"
+        ></option>
+      </select>
     </fieldset>
   </div>
 
