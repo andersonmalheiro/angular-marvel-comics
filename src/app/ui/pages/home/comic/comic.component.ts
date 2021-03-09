@@ -54,8 +54,11 @@ export class ComicComponent implements OnInit {
 
     if (characters && characters.items.length) {
       characters.items.forEach((character) => {
+        const url = new URL(character.resourceURI);
+        url.protocol = 'https:';
+
         this.httpClient
-          .get(character.resourceURI)
+          .get(url.href)
           .pipe(take(1))
           .subscribe(
             (response: any) => {
