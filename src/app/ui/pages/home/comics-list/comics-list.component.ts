@@ -4,6 +4,7 @@ import { Comic, ComicFilters } from 'src/app/api/models';
 import { ComicsService } from 'src/app/api/services';
 import { FilterEvents } from 'src/app/ui/components/filters';
 import { clearObject } from 'src/utils';
+import { FavouriteService } from '../favourite.service';
 
 interface ListState {
   loading: boolean;
@@ -60,6 +61,10 @@ export class ComicsListComponent implements OnInit {
           this.listState.loadingMore = false;
 
           if (response && response.results) {
+            response.results.forEach((item) => {
+              item.selected = FavouriteService.favIds.includes(item.id);
+            });
+
             if (paginate) {
               this.data = [...this.data, ...response.results];
             } else {
