@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { ComicsService } from './api/services';
+import { FavouriteService } from './ui/pages/home/favourite.service';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +13,7 @@ export class AppComponent {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    FavouriteService.restoreDataFromStorage();
+  }
 }
