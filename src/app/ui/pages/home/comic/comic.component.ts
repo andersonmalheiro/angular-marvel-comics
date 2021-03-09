@@ -27,6 +27,13 @@ export class ComicComponent implements OnInit {
 
   public characters: CharacterDetails[] = [];
 
+  public dateTypes: { [key: string]: string } = {
+    onsaleDate: 'On Sale',
+    focDate: 'FOC Date',
+    unlimitedDate: 'Unlimited Date',
+    digitalPurchaseDate: 'Digital purchase',
+  };
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private comicsService: ComicsService,

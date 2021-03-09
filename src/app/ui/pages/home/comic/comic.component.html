@@ -27,7 +27,7 @@
     <strong>Description</strong>
     <p [innerText]="comic?.description || 'No description provided...'"></p>
 
-    <div class="flex-row" style="gap: 1em">
+    <div class="info-grid">
       <div class="character-list">
         <span class="list-title">Characters</span>
         <ul
@@ -46,7 +46,7 @@
         </ul>
 
         <ng-template #emptyCharacterssBlock>
-          <p>No characters found...</p>
+          <p>No characters provided...</p>
         </ng-template>
       </div>
 
@@ -63,7 +63,21 @@
         </ul>
 
         <ng-template #emptyCreatorsBlock>
-          <p>No creators found...</p>
+          <p>No creators provided...</p>
+        </ng-template>
+      </div>
+
+      <div class="list-container">
+        <span class="list-title">Dates</span>
+        <ul class="list" *ngIf="comic?.dates?.length; else emptyDatesBlock">
+          <li *ngFor="let dateObj of comic?.dates">
+            {{ dateTypes[dateObj.type] }} -
+            {{ dateObj.date | date: "dd/MM/yyyy" }}
+          </li>
+        </ul>
+
+        <ng-template #emptyDatesBlock>
+          <p>Dates not provided...</p>
         </ng-template>
       </div>
     </div>
