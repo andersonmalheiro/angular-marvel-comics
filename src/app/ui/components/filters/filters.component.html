@@ -5,7 +5,7 @@
   </button>
 </div>
 
-<form [formGroup]="formGroup" *ngIf="open" @collapse (submit)="applyFilters()">
+<form [formGroup]="formGroup" *ngIf="open" @collapse (submit)="applyFilters()" id="filters_form">
   <div class="input-grid">
     <fieldset class="input-control">
       <label for="title">Title:</label>
@@ -51,7 +51,7 @@
     <button type="button" class="btn secondary-btn" (click)="clearFilters()">
       Clear
     </button>
-    <button type="submit" class="btn primary-btn" [disabled]="!canSearch">
+    <button type="submit" class="btn primary-btn" [disabled]="!canSearch" id="submit_btn">
       Search
     </button>
   </div>

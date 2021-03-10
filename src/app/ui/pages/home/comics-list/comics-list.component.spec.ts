@@ -1,17 +1,17 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ComicsListComponent } from './comics-list.component';
+
 
 describe('ComicsListComponent', () => {
   let component: ComicsListComponent;
   let fixture: ComponentFixture<ComicsListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
-      declarations: [ ComicsListComponent ]
+      declarations: [ ComicsListComponent ],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   }));

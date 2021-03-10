@@ -21,4 +21,18 @@ describe('LoadingIndicatorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render default and custom messages', () => {
+    let compiled: any;
+    const message = 'Custom message';
+
+    fixture.detectChanges();
+    compiled = fixture.nativeElement;
+    expect(compiled.querySelector('p').textContent).toContain('Loading...');
+
+    component.message = message;
+    fixture.detectChanges();
+    compiled = fixture.nativeElement;
+    expect(compiled.querySelector('p').textContent).toContain(message);
+  });
 });

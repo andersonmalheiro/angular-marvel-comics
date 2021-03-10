@@ -1,12 +1,12 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {EmptyIndicatorComponent} from './empty-indicator.component';
 
 describe('EmptyIndicatorComponent', () => {
   let component: EmptyIndicatorComponent;
   let fixture: ComponentFixture<EmptyIndicatorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [EmptyIndicatorComponent],
     }).compileComponents();
@@ -20,5 +20,19 @@ describe('EmptyIndicatorComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render default and custom messages', () => {
+    let compiled: any;
+    const message = 'Custom message';
+
+    fixture.detectChanges();
+    compiled = fixture.nativeElement;
+    expect(compiled.querySelector('p').textContent).toContain('No data...');
+
+    component.message = message;
+    fixture.detectChanges();
+    compiled = fixture.nativeElement;
+    expect(compiled.querySelector('p').textContent).toContain(message);
   });
 });

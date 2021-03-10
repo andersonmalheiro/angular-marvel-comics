@@ -20,18 +20,14 @@ export interface Comic {
   variants: Summary[];
   collections: Summary[];
   collectedIssues: Summary[];
-  dates: [
-    {
-      type: string;
-      date: string;
-    }
-  ];
-  prices: [
-    {
-      type: string;
-      price: number;
-    }
-  ];
+  dates: {
+    type: string;
+    date: string;
+  }[];
+  prices: {
+    type: string;
+    price: number;
+  }[];
   thumbnail: Image;
   images: Image[];
   creators: Resource;
@@ -59,7 +55,9 @@ interface URL {
 
 interface TextObject {
   type: string;
-  url: string;
+  url?: string;
+  language?: string;
+  text?: string;
 }
 
 interface Resource {
