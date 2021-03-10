@@ -1,27 +1,73 @@
-# MarvelComicsAngular
+# Angular Marvel Comics
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+## Descrição
 
-## Development server
+Projeto criado utilizando:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Angular 11;
+- SCSS;
+- Testes com Jasmine e Karma;
+- Docker.
 
-## Code scaffolding
+## Instruções
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Clone o projeto:
+```
+git clone git@github.com:andersonmalheiro/angular-marvel-comics.git
+```
 
-## Build
+Entre na pasta:
+```
+cd angular-marvel-comics
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Antes de executar o projeto, será necessário criar uma conta no site da [API da Marvel](https://developer.marvel.com/) e obter as chaves de acesso. Depois disso atualize os arquivos `environment.ts` e `environment.prod.ts` com as chaves nos suas respectivas variaveis.
 
-## Running unit tests
+```
+# environment.ts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+export const environment = {
+  ...
+  publicKey: '<sua chave pública>',
+  secretKey: '<sua chave privada>',
+};
 
-## Running end-to-end tests
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Para executar o projeto em modo de desenvolvimento, execute o seguinte comando:
 
-## Further help
+```bash
+npm start
+# ou
+yarn start
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+O projeto será ficará disponível no endereço [http://localhost:4200](http://localhost:4200).
+
+Para executar uma build de produção, utilize os seguintes comandos:
+
+```bash
+npm run build --prod
+# ou
+yarn build --prod
+```
+
+## Testes
+
+Para executar os testes unitários, utilize os seguintes comandos:
+
+```bash
+npm run test
+# ou
+yarn test
+```
+
+## Docker
+
+Para executar o projeto utilizando o Docker, execute o seguinte comando:
+
+```bash
+docker-compose up
+```
+
+O projeto ficará disponível também no endereço [http://localhost:4200](http://localhost:4200).
